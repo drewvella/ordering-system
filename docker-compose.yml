@@ -1,0 +1,12 @@
+version: '3'
+
+services:
+  postgres-orders-db:
+    image: postgres:10
+    ports:
+      - "5432:5432"
+    expose:
+      - "5432"
+    environment:
+      POSTGRES_USER: orders
+      POSTGRES_PASSWORD: orders

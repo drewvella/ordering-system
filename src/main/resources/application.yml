@@ -1,0 +1,22 @@
+spring:
+  flyway:
+    schemas: orders
+    table: schema_version
+    baselineOnMigrate: true
+    validateOnMigrate: true
+    enabled: true
+  datasource:
+    driverClassName: org.postgresql.Driver
+    url: jdbc:postgresql://${DB_HOST:localhost}:5432/${DB:orders}?currentSchema=orders
+    username: ${DB_USERNAME:orders}
+    password: ${DB_PASSWORD:orders}
+    type: com.zaxxer.hikari.HikariDataSource
+  jpa:
+    show-sql: false
+    properties:
+      hibernate:
+        jdbc:
+          lob:
+            non_contextual_creation: true
+        enable_lazy_load_no_trans: true
+        default_schema: orders
